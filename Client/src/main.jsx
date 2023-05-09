@@ -5,13 +5,15 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Chocolates from './components/Chocolates.jsx'
 import AddChocolate from './components/AddChocolate.jsx'
+import Update from './components/Update.jsx'
 const router = createBrowserRouter([
   {
     path :'/', 
     element : <App />, 
     children : [
       {path : '/' , element : <Chocolates /> , loader : ()=> fetch('http://localhost:5000/chocolates')}, 
-      {path : 'chocolate/new' , element : <AddChocolate /> }
+      {path : 'chocolate/new' , element : <AddChocolate /> }, 
+      {path : '/update/:id' , element:<Update /> , loader : ({params})=>fetch(`http://localhost:5000/chocolates/${params.id}`)}
     ]
   }
 ])

@@ -47,6 +47,33 @@ async function run() {
             const result =await chocolates.deleteOne(query); 
             res.send(result)
         })
+        // ! READ single data  
+        app.get('/chocolates/:id' , async(req , res)=> { 
+            const id = req.params.id ; 
+            const query = {_id : new ObjectId(id)}
+            const result = await chocolates.findOne(query)
+            res.send(result)
+        })
+
+
+        // ! Update data 
+        app.put('/chocolates/:id' , async(req , res)=> { 
+            const id = req.params.id ; 
+            const data = req.body ; 
+            const filter = {_id : new ObjectId(id)}
+            const options = { upsert: true };
+            const doc = { 
+                $set : { 
+                    name : data.name,
+                    country : data.country,
+                    photo : data.photo,
+                    category : data.category 
+                }
+            }
+            const result = await chocolates.updateOne(filter , doc , options)
+            res.send(result) 
+        })
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });

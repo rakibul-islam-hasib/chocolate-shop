@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineCaretDown } from 'react-icons/ai'
 const options = ['Free', 'Premium', 'Pro'];
 
-export default function DropDown({ dropdown }) {
+export default function DropDown({ dropdown , defaultValue }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const toggling = () => setIsOpen(!isOpen);
@@ -22,7 +22,7 @@ export default function DropDown({ dropdown }) {
                     onClick={toggling}
                     className="w-[100%] rounded-l-md px-4 py-3 text-base text-gray-600 no-underline hover:bg-gray-50 hover:text-gray-700"
                 >
-                    {selectedOption || 'Filter By'}
+                    {selectedOption || defaultValue ? defaultValue : 'Category'}
                 </a>
                 <div className="relative">
                     <button

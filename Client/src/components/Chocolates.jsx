@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { FiEdit } from 'react-icons/fi'
 import { MdDeleteSweep } from 'react-icons/md'
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Chocolates = () => {
     const loadedChocolate = useLoaderData();
-    const [allChocolate, setAllChocolate] = useState(loadedChocolate)
+    const [allChocolate, setAllChocolate] = useState(loadedChocolate); 
+    const navigate = useNavigate()
     const handelDelete = _id => {
         // console.log(_id)
 
@@ -70,7 +71,7 @@ const Chocolates = () => {
                                 <td className="py-4 w-full px-6 border-b border-gray-200">
                                     {/* <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span> */}
                                     <div className="flex items-center gap-2">
-                                        <span className='text-2xl p-2 cursor-pointer hover:bg-red-400 hover:text-white duration-200 rounded-lg bg-orange-200'><FiEdit /> </span>
+                                        <span onClick={()=>navigate(`/update/${item._id}`)} className='text-2xl p-2 cursor-pointer hover:bg-red-400 hover:text-white duration-200 rounded-lg bg-orange-200'><FiEdit /> </span>
                                         <span onClick={() => handelDelete(item._id)} className='text-2xl p-2 cursor-pointer hover:bg-red-400 hover:text-white duration-200 rounded-lg  bg-orange-200'><MdDeleteSweep /> </span>
                                     </div>
                                 </td>
