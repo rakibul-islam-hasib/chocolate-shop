@@ -1,9 +1,10 @@
 import React from 'react';
 import { FiEdit } from 'react-icons/fi'
 import { MdDeleteSweep } from 'react-icons/md'
+import { useLoaderData } from 'react-router-dom';
 
 const Chocolates = () => {
-
+    const allChocolate = useLoaderData(); 
     return (
         <>
             <div className=" rounded-lg overflow-hidden mt-3">
