@@ -25,7 +25,7 @@ const AddChocolate = () => {
                     'Chocolate added to database!',
                     'success'
                   )
-                  e.target.reset(); 
+                //   e.target.reset(); 
             }
         })
         // console.log(chocolate)
