@@ -1,47 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-<<<<<<< HEAD
-import './App.css'
-=======
-import NavBar from './components/NavBar'
-import { Outlet } from 'react-router-dom'
->>>>>>> origin/main
+import React from 'react';
+import { Outlet } from 'react-router';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  document.title = 'Chocolate Management System'
   return (
     <>
-<<<<<<< HEAD
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="my-bg rounded-lg w-[50%] mx-auto text-center px-7 py-3 text-white my-8">
+        <h1 className='uppercase text-2xl font-bold'>Chocolate Management System</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="w-[85%] mx-auto">
+        <div className="border-2 hover:cursor-pointer w-fit px-4 py-2 rounded-xl">
+          <button className='inline-flex text-2xl items-center gap-3'>New chocolate 
+            <img className='w-[25px]' src="https://i.ibb.co/SNJ2hgz/chocolate.png" alt="" />
+          </button>
+        </div>
+        <div className="">
+          <Outlet /> 
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-=======
-      <div className='bg-blue-500'>
-        <NavBar />
-      </div>
-        <Outlet /> 
->>>>>>> origin/main
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

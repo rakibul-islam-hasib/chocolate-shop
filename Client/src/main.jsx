@@ -2,33 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-<<<<<<< HEAD
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-=======
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import AddCoffee from './components/AddCoffee.jsx'
-import Coffees from './components/Coffees.jsx'
-import Update from './components/Update.jsx'
-import Details from './components/Details.jsx'
-
+import Chocolates from './components/Chocolates.jsx'
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App />,
-    children: [
-      {path :'/' , element : <AddCoffee /> }, 
-      {path : '/coffees' , element : <Coffees /> , loader : ()=> fetch('http://localhost:5000/coffees')}, 
-      {path: '/coffees/:id', element: <Update /> , loader : ({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)},
-      {path: '/coffees/details/:id', element: <Details /> , loader : ({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)}
+    path :'/', 
+    element : <App />, 
+    children : [
+      {path : '/' , element : <Chocolates />}
     ]
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
->>>>>>> origin/main
+    <RouterProvider router={router} /> 
   </React.StrictMode>,
 )
