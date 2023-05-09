@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import DropDown from '../utilities/DropDown';
 import Swal from 'sweetalert2';
 
 const Update = () => {
     const [category, setCategory] = useState('')
     const data = useLoaderData();
+    const navigate = useNavigate(); 
     // console.log(data) 
     const handelFormSubmit = e => {
         e.preventDefault()
@@ -22,7 +23,7 @@ const Update = () => {
         })
         .then(res => res.json())
         .then(response => { 
-            console.log(response.modifiedCount)
+            // console.log(response.modifiedCount)
             if (response.modifiedCount > 0) {
                 Swal.fire(
                     'Good job!',
@@ -61,6 +62,9 @@ const Update = () => {
                     <button className='uppercase bg-[#91572B] w-full py-3 rounded-xl text-white font-bold'>Save</button>
                 </div>
             </form>
+            <div className="flex justify-center">
+                <button onClick={()=>navigate('/')} className='px-4 bg-black text-white py-2 rounded font-bold'>Home</button>
+            </div>
         </div>
     );
 };

@@ -5,8 +5,6 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation(); 
   document.title = 'Chocolate Management System';
-
-
   return (
     <>
       <div className="my-bg rounded-lg w-[50%] mx-auto text-center px-7 py-3 text-white my-8">
